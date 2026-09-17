@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciador de tarefas</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+  <h1>Listar Tarefas</h1>
+  <a th:href="@{/task/new}">Criar nova tarefa</a>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Tarefa</th>
+            <th>Descrição</th>
+            <th>Status</th>
+        </tr>
+        <tr th:each="t: ${tarefas}">
+            <td th:text="${t.getId()}"></td>
+            <td th:text="${t.getTitle()}"></td>
+            <td th:text="${t.getDescription()}"></td>
+            <td th:text="${t.isCompleted() ? 'Completado' : 'A fazer'}"></td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

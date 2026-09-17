@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Nova Tarefa</title>
+</head>
+<body>
+
+<h1>Nova Tarefa</h1>
+
+<form th:action="@{/task}" th:object="${tarefa}" method="post">
+
+  <div>
+    <label>Título</label>
+    <input type="text" th:field="*{title}">
+    <span th:errors="*{title}"></span>
+  </div>
+
+  <br/>
+
+  <div>
+    <label>Descrição</label>
+    <input type="text" th:field="*{description}">
+    <span th:errors="*{description}"></span>
+  </div>
+
+  <br/>
+
+  <div>
+    <label>Concluída</label>
+    <input type="checkbox" th:field="*{completed}">
+  </div>
+
+  <br/>
+
+  <button type="submit">Salvar</button>
+  <a href="/task">Sair</a>
+
+</form>
+
+</body>
+</html>
